@@ -37,7 +37,8 @@ jobs:
 
       - name: Create demo file
         run: |
-          echo "hello from CI Pipeline" > demo.txt
+          mkdir reports
+          echo "hello from CI Pipeline" > reports/demo.txt
           echo "File created successfully"
 
       # upload whatever is here in the current folder
@@ -45,5 +46,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build artifact demo
-          path: .
+          path: reports
 
