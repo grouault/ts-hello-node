@@ -54,3 +54,20 @@ jobs:
     steps:
       - name: Run tests
         run: echo Running tests...
+
+  explore-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get general infos
+        run: | 
+          echo "the job was automatically triggered by a ${{github.event_name}}."
+          echo "this job is now running on a ${{runner.os}} server hosted by GitHub."
+          echo "the name of your branch is ${{github.ref}} and your repository is ${{github.repository}}."
+      - name: checkout repository code    
+        uses: actions/checkout@v5  
+      - name: get other infos
+        run: |  
+          echo "the ${{github.repository}} repository has been cloned to the runner."
+          echo "List fies in the repository"
+          ls "${{github.workspace}}"
+          echo "this job's status is ${{job.status}}"
