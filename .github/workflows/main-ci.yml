@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: main-CI
 
 # Controls when the workflow will run
 on:
@@ -34,3 +34,16 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Create demo file
+        run: |
+          echo "hello from CI Pipeline" > demo.txt
+          echo "File created successfully"
+
+      # upload whatever is here in the current folder
+      - name: Upload Demo
+        uses: actions/upload-artifact@v4
+        with:
+          name: build artifact demo
+          path: .
+
